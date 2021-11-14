@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="HospitalManagmentSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="shifts">
+          <Key>
+            <PropertyRef Name="id_shift" />
+          </Key>
+          <Property Name="id_shift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_worker" Type="int" />
+          <Property Name="specialization_shift" Type="varchar" MaxLength="50" />
+          <Property Name="date_shift" Type="datetime" />
+        </EntityType>
+        <EntityType Name="workers">
+          <Key>
+            <PropertyRef Name="id_worker" />
+          </Key>
+          <Property Name="id_worker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" />
+          <Property Name="pesel" Type="bigint" />
+          <Property Name="user_type" Type="varchar" MaxLength="50" />
+          <Property Name="login" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="status_admin" Type="bit" />
+          <Property Name="status_user" Type="bit" />
+          <Property Name="specialization" Type="varchar" MaxLength="50" />
+          <Property Name="pwz" Type="int" />
+        </EntityType>
+        <Association Name="FK_shifts_ToTable">
+          <End Role="workers" Type="Self.workers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="shifts" Type="Self.shifts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="id_worker" />
+            </Principal>
+            <Dependent Role="shifts">
+              <PropertyRef Name="id_worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HospitalManagmentSystemDBModelStoreContainer">
+          <EntitySet Name="shifts" EntityType="Self.shifts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workers" EntityType="Self.workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_shifts_ToTable" Association="Self.FK_shifts_ToTable">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="shifts" EntitySet="shifts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalManagmentSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="shift">
+          <Key>
+            <PropertyRef Name="id_shift" />
+          </Key>
+          <Property Name="id_shift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_worker" Type="Int32" />
+          <Property Name="specialization_shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date_shift" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="worker" Relationship="Self.FK_shifts_ToTable" FromRole="shifts" ToRole="workers" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="id_worker" />
+          </Key>
+          <Property Name="id_worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pesel" Type="Int64" />
+          <Property Name="user_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status_admin" Type="Boolean" />
+          <Property Name="status_user" Type="Boolean" />
+          <Property Name="specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pwz" Type="Int32" />
+          <NavigationProperty Name="shifts" Relationship="Self.FK_shifts_ToTable" FromRole="workers" ToRole="shifts" />
+        </EntityType>
+        <Association Name="FK_shifts_ToTable">
+          <End Role="workers" Type="Self.worker" Multiplicity="0..1" />
+          <End Role="shifts" Type="Self.shift" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="id_worker" />
+            </Principal>
+            <Dependent Role="shifts">
+              <PropertyRef Name="id_worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HospitalManagmentSystemDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="shifts" EntityType="Self.shift" />
+          <EntitySet Name="workers" EntityType="Self.worker" />
+          <AssociationSet Name="FK_shifts_ToTable" Association="Self.FK_shifts_ToTable">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="shifts" EntitySet="shifts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalManagmentSystemDBModelStoreContainer" CdmEntityContainer="HospitalManagmentSystemDBEntities">
+          <EntitySetMapping Name="shifts">
+            <EntityTypeMapping TypeName="HospitalManagmentSystemDBModel.shift">
+              <MappingFragment StoreEntitySet="shifts">
+                <ScalarProperty Name="id_shift" ColumnName="id_shift" />
+                <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+                <ScalarProperty Name="specialization_shift" ColumnName="specialization_shift" />
+                <ScalarProperty Name="date_shift" ColumnName="date_shift" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workers">
+            <EntityTypeMapping TypeName="HospitalManagmentSystemDBModel.worker">
+              <MappingFragment StoreEntitySet="workers">
+                <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status_admin" ColumnName="status_admin" />
+                <ScalarProperty Name="status_user" ColumnName="status_user" />
+                <ScalarProperty Name="specialization" ColumnName="specialization" />
+                <ScalarProperty Name="pwz" ColumnName="pwz" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

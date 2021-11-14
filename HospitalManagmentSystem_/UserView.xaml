@@ -1,0 +1,83 @@
+﻿<Window x:Class="HospitalManagmentSystem_.UserView"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HospitalManagmentSystem_"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AdminView" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        >
+    <Grid>
+        <Grid MouseDown="Border_MouseDown" Margin="20" Background="#FF8C8C95">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30"
+                                  ShadowDepth="2"
+                                  Direction="-90"
+                                  Color="Gray">
+                </DropShadowEffect>
+            </Grid.Effect>
+            <StackPanel Width="100"
+                        HorizontalAlignment="Left"
+                        Background="#D94448">
+
+
+                
+
+                <Button x:Name="btnExcel"
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,200,0,10" Click="btnExcel_Click"
+                        ToolTip="Export to Excel">
+
+                    <Image Source="img\excel.png"
+                           Stretch="None">
+                    </Image>
+                </Button>
+                <Button x:Name="Logout"
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,0,0,10" Click="Logout_Click"
+                        ToolTip="Logout">
+
+                    <Image Source="img\logout.png"
+                           Stretch="None"
+                           >
+                    </Image>
+                </Button>
+
+            </StackPanel>
+
+            <Grid Height="80"
+                  VerticalAlignment="Top"
+                  Background="#FF292934">
+                <TextBlock Text="Hospital managment system"
+                           FontSize="36"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="GhostWhite">
+                </TextBlock>
+
+                <Button VerticalAlignment="Center" Margin="1094,12,10,12" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                        ToolTip="Close" x:Name="btnExit" Click="BtnExit_Click" Width="Auto">
+                    <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="30" Height="30"/>
+                </Button>
+            </Grid>
+
+            <Grid>
+                <DataGrid x:Name="dtGrid" Background="#FF8C8C95"
+                           Margin="100,80,0,0" Height="498" VerticalAlignment="Top" ColumnWidth="7*"/>
+            </Grid>
+
+            <Grid Height="80"
+                  Background="#FF292934"
+                  VerticalAlignment="Bottom"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HospitalManagmentSystemDBModelStoreContainer" CdmEntityContainer="HospitalManagmentSystemDBEntities">
+    <EntitySetMapping Name="shifts">
+      <EntityTypeMapping TypeName="HospitalManagmentSystemDBModel.shift">
+        <MappingFragment StoreEntitySet="shifts">
+          <ScalarProperty Name="id_shift" ColumnName="id_shift" />
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="specialization_shift" ColumnName="specialization_shift" />
+          <ScalarProperty Name="date_shift" ColumnName="date_shift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workers">
+      <EntityTypeMapping TypeName="HospitalManagmentSystemDBModel.worker">
+        <MappingFragment StoreEntitySet="workers">
+          <ScalarProperty Name="id_worker" ColumnName="id_worker" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="pesel" ColumnName="pesel" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="status_admin" ColumnName="status_admin" />
+          <ScalarProperty Name="status_user" ColumnName="status_user" />
+          <ScalarProperty Name="specialization" ColumnName="specialization" />
+          <ScalarProperty Name="pwz" ColumnName="pwz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

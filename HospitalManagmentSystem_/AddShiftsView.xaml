@@ -1,0 +1,116 @@
+﻿<Window x:Class="HospitalManagmentSystem_.AddShiftsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HospitalManagmentSystem_"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="AddShiftsView" Height="700" Width="700"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid>
+        <Grid MouseDown="Border_MouseDown" Background="#FF8C8C95">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30"
+                                  ShadowDepth="2"
+                                  Direction="-90"
+                                  Color="Gray">
+                </DropShadowEffect>
+            </Grid.Effect>
+            <StackPanel Width="80"
+                        HorizontalAlignment="Left"
+                        Background="#D94448">
+
+                <Button x:Name="Arrow"
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,150,0,20"
+                        Click="Arrow_Click"
+                        ToolTip="Undo">
+
+                    <Image Source="img\arrow.png"
+                           Stretch="None">
+                    </Image>
+                </Button>
+
+                <Button x:Name="Excel"
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,0,0,20" Click="Excel_Click"
+                        ToolTip="Export to Excel">
+
+                    <Image Source="img\excel.png"
+                           Stretch="None">
+
+                    </Image>
+                </Button>
+
+                <Button x:Name="Logout"
+                        Height="100"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        Margin="0,0,0,20" Click="Logout_Click"
+                        ToolTip="Logout">
+
+                    <Image Source="img\logout.png"
+                           Stretch="None"
+                           >
+                    </Image>
+                </Button>
+
+            </StackPanel>
+
+            <Grid Height="75"
+                  VerticalAlignment="Top"
+                  Background="#FF292934">
+                <TextBlock Text="SHIFTS PLANER"
+                           FontSize="36"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="GhostWhite">
+                </TextBlock>
+
+                <Button VerticalAlignment="Center" HorizontalAlignment="Left" Margin="634,6,0,13" Style="{StaticResource MaterialDesignFloatingActionButton}" Background="{x:Null}"
+                        ToolTip="Close" x:Name="btnExit" Click="BtnExit_Click" RenderTransformOrigin="0.964,0.53">
+                    <materialDesign:PackIcon Kind="Close" Foreground="Black" Width="30" Height="30"/>
+                </Button>
+            </Grid>
+
+            <Grid>
+                <DataGrid x:Name="dtGridWorkers" Background="#FF8C8C95"
+                           Margin="80,503,0,0" Height="157" VerticalAlignment="Top" ColumnWidth="4*" SelectionChanged="dtGrid_SelectionChanged_Worker"/>
+
+                <Grid Margin="80,470,0,202" RenderTransformOrigin="0.501,0.107">
+                    <Label Height="33" FontFamily="Tahoma" FontWeight="Bold" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Center" Content="Select employee:"/>
+                </Grid>
+                <DataGrid x:Name="dtGridShifts" Background="#FF8C8C95"
+                           Margin="80,264,0,0" Height="201" VerticalAlignment="Top" SelectionChanged="dtGrid_SelectionChanged_Shift"/>
+            </Grid>
+
+            <Grid Height="40"
+                  Background="#FF292934"
+                  VerticalAlignment="Bottom"/>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBox x:Name="txtFirstnameShift" HorizontalAlignment="Center" Height="25" Margin="80,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsReadOnly="True"/>
+                <TextBox x:Name="txtLastnameShift" HorizontalAlignment="Center" Height="25" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsReadOnly="True"/>
+                <TextBox x:Name="txtSpecializationShifts" HorizontalAlignment="Center" Height="25" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsReadOnly="True"/>
+                <TextBox x:Name="txtId_Worker" HorizontalAlignment="Center" Height="25" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" IsReadOnly="True"/>
+                <DatePicker x:Name="dataPicker" HorizontalAlignment="Center" Margin="80,10,0,0" VerticalAlignment="Top" Width="250"/>
+            </StackPanel>
+            <Button x:Name="Add" Content="Add" HorizontalAlignment="Left" Margin="548,164,0,0" VerticalAlignment="Top" Width="124" Click="Add_Click"/>
+            <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="548,214,0,0" VerticalAlignment="Top" Width="124" Click="Delete_Click"/>
+            
+            <StackPanel>
+                <TextBlock Text="Firstname:" HorizontalAlignment="Center" Height="25" Margin="105,85,450,0" VerticalAlignment="Top" Width="142" FontFamily="Tahoma" FontSize="14" TextAlignment="Right"/>
+                <TextBlock Text="Lastname:" HorizontalAlignment="Center" Height="25" Margin="105,11,450,0" VerticalAlignment="Top" Width="142" FontFamily="Tahoma" FontSize="14" TextAlignment="Right"/>
+                <TextBlock HorizontalAlignment="Center" Height="25" Margin="105,11,450,0" VerticalAlignment="Top" Width="142" FontFamily="Tahoma" FontSize="14" TextAlignment="Right"><Run Text="Specialization"/><Run Text=":"/></TextBlock>
+                <TextBlock HorizontalAlignment="Center" Height="25" Margin="105,11,450,0" VerticalAlignment="Top" Width="142" FontFamily="Tahoma" FontSize="14" TextAlignment="Right"><Run Text="IdWorker"/><Run Text=":"/></TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

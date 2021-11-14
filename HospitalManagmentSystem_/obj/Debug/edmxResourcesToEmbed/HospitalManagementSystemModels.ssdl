@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalManagmentSystemDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="shifts">
+    <Key>
+      <PropertyRef Name="id_shift" />
+    </Key>
+    <Property Name="id_shift" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_worker" Type="int" />
+    <Property Name="specialization_shift" Type="varchar" MaxLength="50" />
+    <Property Name="date_shift" Type="datetime" />
+  </EntityType>
+  <EntityType Name="workers">
+    <Key>
+      <PropertyRef Name="id_worker" />
+    </Key>
+    <Property Name="id_worker" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" />
+    <Property Name="pesel" Type="bigint" />
+    <Property Name="user_type" Type="varchar" MaxLength="50" />
+    <Property Name="login" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="status_admin" Type="bit" />
+    <Property Name="status_user" Type="bit" />
+    <Property Name="specialization" Type="varchar" MaxLength="50" />
+    <Property Name="pwz" Type="int" />
+  </EntityType>
+  <Association Name="FK_shifts_ToTable">
+    <End Role="workers" Type="Self.workers" Multiplicity="0..1" />
+    <End Role="shifts" Type="Self.shifts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="workers">
+        <PropertyRef Name="id_worker" />
+      </Principal>
+      <Dependent Role="shifts">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalManagmentSystemDBModelStoreContainer">
+    <EntitySet Name="shifts" EntityType="Self.shifts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="workers" EntityType="Self.workers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_shifts_ToTable" Association="Self.FK_shifts_ToTable">
+      <End Role="workers" EntitySet="workers" />
+      <End Role="shifts" EntitySet="shifts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

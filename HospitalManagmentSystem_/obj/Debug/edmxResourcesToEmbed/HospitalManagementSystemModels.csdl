@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalManagmentSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="worker">
+    <Key>
+      <PropertyRef Name="id_worker" />
+    </Key>
+    <Property Name="id_worker" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pesel" Type="Int64" />
+    <Property Name="user_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status_admin" Type="Boolean" />
+    <Property Name="status_user" Type="Boolean" />
+    <Property Name="specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pwz" Type="Int32" />
+    <NavigationProperty Name="shifts" Relationship="HospitalManagmentSystemDBModel.FK_shifts_ToTable" FromRole="worker" ToRole="shift" />
+  </EntityType>
+  <EntityContainer Name="HospitalManagmentSystemDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="workers" EntityType="Self.worker" />
+    <EntitySet Name="shifts" EntityType="HospitalManagmentSystemDBModel.shift" />
+    <AssociationSet Name="FK_shifts_ToTable" Association="HospitalManagmentSystemDBModel.FK_shifts_ToTable">
+      <End Role="worker" EntitySet="workers" />
+      <End Role="shift" EntitySet="shifts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="shift">
+    <Key>
+      <PropertyRef Name="id_shift" />
+    </Key>
+    <Property Name="id_shift" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_worker" Type="Int32" />
+    <Property Name="date_shift" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="worker" Relationship="HospitalManagmentSystemDBModel.FK_shifts_ToTable" FromRole="shift" ToRole="worker" />
+    <Property Name="specialization_shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_shifts_ToTable">
+    <End Type="HospitalManagmentSystemDBModel.worker" Role="worker" Multiplicity="0..1" />
+    <End Type="HospitalManagmentSystemDBModel.shift" Role="shift" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="worker">
+        <PropertyRef Name="id_worker" />
+      </Principal>
+      <Dependent Role="shift">
+        <PropertyRef Name="id_worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
