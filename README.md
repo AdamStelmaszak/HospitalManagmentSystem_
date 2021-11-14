@@ -1,89 +1,34 @@
 # HospitalManagmentSystem_
-> Outline a brief description of your project.
-> Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+> The system is intended to allow users to keep simple records of hospital employees.
 
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
-* [Project Status](#project-status)
-* [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
 * [Contact](#contact)
 <!-- * [License](#license) -->
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+The application HospitalManagmentSystem_ is a project at the university.
 
+Project assumptions:
+- The aim of the project was to create an administrative system for the hospital. The system is to allow users to keep a simple record of hospital employees. Each employee has     name, surname and pesel as well as username and password. In the system we distinguish the following types of users: doctor, nurse, administrator.
+- A doctor, apart from the standard data of each user, has additionally a specialty (cardiologist, urologist, neurologist or laryngologist) and a PWZ number. Doctors and nurses   also have a list of their 24-hour on-call duties, with the assumption that one person can have a maximum of 10 on-call duties per month and their on-call duties cannot occur     day after day. In addition, only one doctor per specialty may be on duty on any given day (e.g., a cardiologist, a urologist and an ENT may be on duty on a given day, but not   two cardiologists).
+- When the system starts, it asks you to enter your user name and password. After logging in, in the case of doctors and nurses, you can only see a list of all doctors and         nurses (first name, last name, job title + specialization if any) and the duty roster of the selected person in the given month.
+- Administrator after logging in can see all users on the list. He can also edit the data of each user (including duty roster) and add new users (including administrators) to     the system.
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- .NETFramework - version 4.7.2
+- EntityFramework - version 6.4.4
+- MaterialDesignColors - version 1.2.7
+- MaterialDesignThemes - version 3.2.0
 
 
-## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
-
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
-
-
-## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
-
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
-
-
-## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
-
-## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
-
-
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+## Sample User
+- username: admin
+- password: admin
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
-
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
+Created by [@Adam Stelmaszak](www.linkedin.com/in/adam-stelmaszak) - feel free to contact me!
