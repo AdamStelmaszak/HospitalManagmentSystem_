@@ -4,22 +4,17 @@
 winexe
 C#
 .cs
-C:\new\HospitalManagmentSystem_\HospitalManagmentSystem_\obj\Debug\
+C:\HospitalManagmentSystem_\HospitalManagmentSystem_\obj\Debug\
 HospitalManagmentSystem_
 none
 false
 DEBUG;TRACE
-C:\new\HospitalManagmentSystem_\HospitalManagmentSystem_\App.xaml
+C:\HospitalManagmentSystem_\HospitalManagmentSystem_\App.xaml
 4-1680331773
 41905775269
-<<<<<<< HEAD
-141796085875
-23-759873000
-=======
 13-1656522054
-23-2084768125
->>>>>>> 7123dd9712dd47457c09df126df0d45d10148153
+23-759873000
 AddShiftsView.xaml;AdminView.xaml;MainWindow.xaml;UserView.xaml;
 
-True
+False
 

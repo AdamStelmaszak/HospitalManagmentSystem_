@@ -197,6 +197,10 @@
       <DependentUpon>HospitalManagmentSystemModels.edmx</DependentUpon>
       <LastGenOutput>HospitalManagmentSystemModels.cs</LastGenOutput>
     </Content>
+    <Resource Include="img\admin_view.png" />
+    <Resource Include="img\main_window.png" />
+    <Resource Include="img\shifts_planer.png" />
+    <Resource Include="img\user_view.png" />
     <Resource Include="img\excel.png" />
     <Resource Include="img\arrow.png" />
     <Resource Include="img\home.png" />
