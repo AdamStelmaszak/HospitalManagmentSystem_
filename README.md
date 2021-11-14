@@ -31,4 +31,4 @@ Project assumptions:
 
 
 ## Contact
-Created by [@Adam Stelmaszak](www.linkedin.com/in/adam-stelmaszak) - feel free to contact me!
+Created by [Adam Stelmaszak](www.linkedin.com/in/adam-stelmaszak) - feel free to contact me!
