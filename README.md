@@ -27,8 +27,26 @@ Project assumptions:
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
+<div align="center">
+  <h3 align="center">Main Window</h3>
+  <img src="./HospitalManagmentSystem_/img/main_window.png">
+</div>
+
+<div align="center">
+  <h3 align="center">Admin View</h3>
+  <img src="./HospitalManagmentSystem_/img/admin_view.png">
+</div>
+
+<div align="center">
+  <h3 align="center">User View</h3>
+  <img src="./HospitalManagmentSystem_/img/user_view.png">
+</div>
+
+<div align="center">
+  <h3 align="center">Shifts Planner</h3>
+  <img src="./HospitalManagmentSystem_/img/shifts_planer.png">
+</div>
+
 
 ## Sample User
 - username: admin
