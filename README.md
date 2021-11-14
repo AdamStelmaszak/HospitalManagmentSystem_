@@ -4,6 +4,7 @@
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
+* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Contact](#contact)
 <!-- * [License](#license) -->
@@ -24,6 +25,10 @@ Project assumptions:
 - MaterialDesignColors - version 1.2.7
 - MaterialDesignThemes - version 3.2.0
 
+
+## Screenshots
+![Example screenshot](./img/screenshot.png)
+<!-- If you have screenshots you'd like to share, include them here. -->
 
 ## Sample User
 - username: admin
