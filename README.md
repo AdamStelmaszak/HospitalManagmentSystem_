@@ -5,7 +5,7 @@
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Screenshots](#screenshots)
-* [Setup](#setup)
+* [Sample User](#sample-user)
 * [Contact](#contact)
 <!-- * [License](#license) -->
 
